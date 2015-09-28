@@ -3,7 +3,9 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-    public float speed;
+public float speed;
+public bool hasBottle;
+
     Animator anim;
 
     void Start ()
@@ -14,26 +16,18 @@ public class Player : MonoBehaviour {
 
     void Update()
     {
-        if( Input.GetMouseButtonDown( 0 ) )
+        if(Input.GetMouseButtonDown( 0 ) )
         {
             anim.SetTrigger( "Attack" );
         }
+		if(Input.GetKeyDown(KeyCode.E) && Bottle.WalkedOverObject)
+		{
+			Destroy(Bottle.WalkedOverObject);
+		}
     }
 	
 	void FixedUpdate() 
     {
-        var mousePosition = Camera.main.ScreenToWorldPoint( Input.mousePosition );
-        Quaternion rot = Quaternion.LookRotation( transform.position - mousePosition, Vector3.forward );
-        
-        transform.rotation = rot;
-        transform.eulerAngles = new Vector3( 0, 0, transform.eulerAngles.z );
-        GetComponent<Rigidbody2D>().angularVelocity = 0; //slide fix
-
-        float input = Input.GetAxis( "Vertical" );
-        GetComponent<Rigidbody2D>().AddForce( gameObject.transform.up * speed * input );
-
-
-
 
 	}
 }

@@ -1,16 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bottle : MonoBehaviour {
+public class Bottle : MonoBehaviour 
+{
+	public static GameObject WalkedOverObject;
 
-    void OnTriggerEnter2D(Collider2D other)
+	void OnTriggerEnter2D(Collider2D other)
     {
-        GameObject gObj = other.gameObject;
-        AudioClip clip;
+        Debug.Log("Object Entered the Trigger");
+		GameObject gObj = other.gameObject;	
         
-        if (gObj.CompareTag("Player"))
+		/*if(Input.GetKeyDown(KeyCode.E))
         {
-            Destroy(gameObject);
-        }
+			Destroy(other.gameObject);
+        }*/
     }
 }
