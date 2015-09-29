@@ -30,13 +30,16 @@ public bool hasBottle;
         }
 
 		// "Collect bottle" keyboard handling.
+		//If the key is pressed this frame, set _bottleDestroyed
 		if (Input.GetKeyDown (KeyCode.E)) {
 			_bottleDestroyed = false;
 			_keyPressDuration = 0f;
 		}
+		//If the key is (still) held down, increment duration
 		if (Input.GetKey (KeyCode.E)) {
 			_keyPressDuration += Time.deltaTime;
 		}
+		//If the key is released, reset the duration
 		if (Input.GetKeyUp (KeyCode.E)) {
 			_keyPressDuration = -1f;
 		}
@@ -49,7 +52,6 @@ public bool hasBottle;
 	}
 
 	// Need to have bottle collision checked in both onTriggerStay and onTriggerEnter!
-
 	void OnTriggerStay2D(Collider2D other)
 	{
 		attemptToDestroyBottle (other.gameObject);
