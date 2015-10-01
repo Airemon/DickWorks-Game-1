@@ -53,6 +53,22 @@
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\SwordScript.cs" />
+     <Compile Include="Assets\Tiler\Scripts\Brush\CopyBrush.cs" />
+     <Compile Include="Assets\Tiler\Scripts\Brush\Filter.cs" />
+     <Compile Include="Assets\Tiler\Scripts\Brush\IBrush.cs" />
+     <Compile Include="Assets\Tiler\Scripts\Brush\NormalBrush.cs" />
+     <Compile Include="Assets\Tiler\Scripts\Map\Cell.cs" />
+     <Compile Include="Assets\Tiler\Scripts\Map\TilerMap.cs" />
+     <Compile Include="Assets\Tiler\Scripts\Map\TilerMapEdit.cs" />
+     <Compile Include="Assets\Tiler\Scripts\Map\UndoPaint.cs" />
+     <Compile Include="Assets\Tiler\Scripts\Tile\Tile.cs" />
+     <Compile Include="Assets\Tiler\Scripts\Tile\TileProperties.cs" />
+     <Compile Include="Assets\Tiler\Scripts\Tile\TileTexture.cs" />
+     <Compile Include="Assets\Tiler\Scripts\Tile\Tileset.cs" />
+     <Compile Include="Assets\Tiler\Scripts\Util\Combine.cs" />
+     <Compile Include="Assets\Tiler\Scripts\Util\CreatePlane.cs" />
+     <Compile Include="Assets\Tiler\Scripts\Util\Point.cs" />
+     <Compile Include="Assets\Tiler\Scripts\Util\Util.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
