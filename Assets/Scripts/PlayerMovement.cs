@@ -19,25 +19,25 @@ public class PlayerMovement : MonoBehaviour {
 				
         if(Input.GetKey(KeyCode.D))
         {
-            transform.rotation = Quaternion.AngleAxis(-90f, Vector3.forward);
-            transform.Translate (Vector2.up * _moveRate);
+            //transform.rotation = Quaternion.AngleAxis(-90f, Vector3.forward);
+            transform.Translate (Vector2.right * _moveRate);
         }
         
         if(Input.GetKey(KeyCode.S))
         {
-            transform.rotation = Quaternion.AngleAxis(180f, Vector3.forward);
-            transform.Translate (Vector2.up * _moveRate);
+            //transform.rotation = Quaternion.AngleAxis(180f, Vector3.forward);
+            transform.Translate (-Vector2.up * _moveRate);
         }
         
         if(Input.GetKey(KeyCode.A))
         {
-            transform.rotation = Quaternion.AngleAxis(90f, Vector3.forward);
-            transform.Translate (Vector2.up * _moveRate);
+            //transform.rotation = Quaternion.AngleAxis(90f, Vector3.forward);
+            transform.Translate (-Vector2.right * _moveRate);
         }
         
         if(Input.GetKey(KeyCode.W))
         {
-            transform.rotation = Quaternion.AngleAxis(0f, Vector3.forward);
+            //transform.rotation = Quaternion.AngleAxis(0f, Vector3.forward);
             transform.Translate (Vector2.up * _moveRate);
         }
         

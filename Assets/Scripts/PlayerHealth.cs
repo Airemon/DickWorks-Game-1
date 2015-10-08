@@ -25,7 +25,6 @@ public class PlayerHealth : MonoBehaviour {
 		if(Health > 100){
 			Health = 100;
 		}
-		
 		HealthUpdate ();
 	}
 	
