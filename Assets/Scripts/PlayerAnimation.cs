@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerAnimation : MonoBehaviour {
 
 	public Animator anim;
+	private bool Diagonal;
 	
 	// Use this for initialization
 	void Start () {
@@ -12,7 +13,7 @@ public class PlayerAnimation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey(KeyCode.W)){
+		if(Input.GetKey(KeyCode.W) && Diagonal == false){
 			anim.SetBool("Up", true);
 			anim.SetBool("UpRight", false);
 			anim.SetBool("Right", false);
@@ -22,7 +23,7 @@ public class PlayerAnimation : MonoBehaviour {
 			anim.SetBool("Left", false);
 			anim.SetBool("UpLeft", false);
 		}
-		/*if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D)){
+		if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D)){
 			anim.SetBool("Up", false);
 			anim.SetBool("UpRight", true);
 			anim.SetBool("Right", false);
@@ -31,8 +32,9 @@ public class PlayerAnimation : MonoBehaviour {
 			anim.SetBool("DownLeft", false);
 			anim.SetBool("Left", false);
 			anim.SetBool("UpLeft", false);
-		}*/
-		if(Input.GetKey(KeyCode.D)){
+			Diagonal = true;
+		}
+		if(Input.GetKey(KeyCode.D) && Diagonal == false){
 			anim.SetBool("Up", false);
 			anim.SetBool("UpRight", false);
 			anim.SetBool("Right", true);
@@ -42,7 +44,7 @@ public class PlayerAnimation : MonoBehaviour {
 			anim.SetBool("Left", false);
 			anim.SetBool("UpLeft", false);
 		}
-		/*if(Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S)){
+		if(Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S)){
 			anim.SetBool("Up", false);
 			anim.SetBool("UpRight", false);
 			anim.SetBool("Right", false);
@@ -51,8 +53,9 @@ public class PlayerAnimation : MonoBehaviour {
 			anim.SetBool("DownLeft", false);
 			anim.SetBool("Left", false);
 			anim.SetBool("UpLeft", false);
-		}*/
-		if(Input.GetKey(KeyCode.S)){
+			Diagonal = true;
+		}
+		if(Input.GetKey(KeyCode.S) && Diagonal == false){
 			anim.SetBool("Up", false);
 			anim.SetBool("UpRight", false);
 			anim.SetBool("Right", false);
@@ -62,7 +65,7 @@ public class PlayerAnimation : MonoBehaviour {
 			anim.SetBool("Left", false);
 			anim.SetBool("UpLeft", false);
 		}
-		/*if(Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A)){
+		if(Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A)){
 			anim.SetBool("Up", false);
 			anim.SetBool("UpRight", false);
 			anim.SetBool("Right", false);
@@ -71,8 +74,9 @@ public class PlayerAnimation : MonoBehaviour {
 			anim.SetBool("DownLeft", true);
 			anim.SetBool("Left", false);
 			anim.SetBool("UpLeft", false);
-		}*/
-		if(Input.GetKey(KeyCode.A)){
+			Diagonal = true;
+		}
+		if(Input.GetKey(KeyCode.A) && Diagonal == false){
 			anim.SetBool("Up", false);
 			anim.SetBool("UpRight", false);
 			anim.SetBool("Right", false);
@@ -82,7 +86,7 @@ public class PlayerAnimation : MonoBehaviour {
 			anim.SetBool("Left", true);
 			anim.SetBool("UpLeft", false);
 		}
-		/*if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.W)){
+		if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.W)){
 			anim.SetBool("Up", false);
 			anim.SetBool("UpRight", false);
 			anim.SetBool("Right", false);
@@ -91,54 +95,60 @@ public class PlayerAnimation : MonoBehaviour {
 			anim.SetBool("DownLeft", false);
 			anim.SetBool("Left", false);
 			anim.SetBool("UpLeft", true);
-		}*/
-		if(Input.GetKey(KeyCode.W)){
+			Diagonal = true;
+		}
+		if(Input.GetKey(KeyCode.W) && Diagonal == false){
 			anim.SetBool("RunUp", true);
 		}
 		else{
 			anim.SetBool("RunUp", false);
 		}
-		/*if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D)){
+		if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D)){
 			anim.SetBool("RunUpRight", true);
+			Diagonal = true;
 		}
 		else{
 			anim.SetBool("RunUpRight", false);
-		}*/
-		if(Input.GetKey(KeyCode.D)){
+		}
+		if(Input.GetKey(KeyCode.D) && Diagonal == false){
 			anim.SetBool("RunRight", true);
 		}
 		else{
 			anim.SetBool("RunRight", false);
 		}
-		/*if(Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S)){
+		if(Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S)){
 			anim.SetBool("RunDownRight", true);
+			Diagonal = true;
 		}
 		else{
 			anim.SetBool("RunDownRight", false);
-		}*/
-		if(Input.GetKey(KeyCode.S)){
+		}
+		if(Input.GetKey(KeyCode.S) && Diagonal == false){
 			anim.SetBool("RunDown", true);
 		}
 		else{
 			anim.SetBool("RunDown", false);
 		}
-		/*if(Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A)){
+		if(Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A)){
 			anim.SetBool("RunDownLeft", true);
+			Diagonal = true;
 		}
 		else{
 			anim.SetBool("RunDownLeft", false);
-		}*/
-		if(Input.GetKey(KeyCode.A)){
+		}
+		if(Input.GetKey(KeyCode.A) && Diagonal == false){
 			anim.SetBool("RunLeft", true);
 		}
 		else{
 			anim.SetBool("RunLeft", false);
 		}
-		/*if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.W)){
+		if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.W)){
 			anim.SetBool("RunUpLeft", true);
+			Diagonal = true;
 		}
 		else{
 			anim.SetBool("RunUpLeft", false);
-		}*/
+		}
+		Diagonal = false;
 	}
 }
