@@ -150,5 +150,13 @@ public class PlayerAnimation : MonoBehaviour {
 			anim.SetBool("RunUpLeft", false);
 		}
 		Diagonal = false;
+		
+		if(anim.GetBool("AttackDown")){
+			anim.SetBool("AttackDown", false);
+		}
+		
+        if(Input.GetKey(KeyCode.F)){
+            anim.SetBool("AttackDown", true);
+        }
 	}
 }

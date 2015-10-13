@@ -62,10 +62,5 @@ public class PlayerMovement : MonoBehaviour {
             //transform.rotation = Quaternion.AngleAxis(0f, Vector3.forward);
             transform.Translate (Vector2.up * _moveRate);
         }*/
-        
-        if( Input.GetMouseButtonDown( 0 ) )
-        {
-            anim.SetTrigger( "Attack" );
-        }
     }
 }

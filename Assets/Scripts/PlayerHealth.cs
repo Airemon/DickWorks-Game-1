@@ -3,10 +3,11 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour {
 	
-	public float Health = 100f;
+	public GameObject deathEffect;
 	private SpriteRenderer healthbar;
 	private Vector3 healthscale;
-	
+	[SerializeField]
+	private float Health = 40f;
 	private float hitTime;
 	
 
@@ -19,11 +20,11 @@ public class PlayerHealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Health <= 0){
-			Application.Quit ();
-			Debug.Log ("The game should quit now");
+			Instantiate(deathEffect, transform.position, transform.rotation);
+			Destroy(gameObject);
 		}
-		if(Health > 100){
-			Health = 100;
+		if(Health > 40){
+			Health = 40;
 		}
 		HealthUpdate ();
 	}

@@ -5,6 +5,7 @@ public class Player : MonoBehaviour {
 
 public float speed;
 public bool hasBottle;
+public bool keyDown;
 
 	[SerializeField]
 	private float _delayInSeconds = 0.5f;
@@ -34,6 +35,7 @@ public bool hasBottle;
 		if (Input.GetKeyDown (KeyCode.E)) {
 			_bottleDestroyed = false;
 			_keyPressDuration = 0f;
+			keyDown = true;
 		}
 		//If the key is (still) held down, increment duration
 		if (Input.GetKey (KeyCode.E)) {
@@ -42,6 +44,7 @@ public bool hasBottle;
 		//If the key is released, reset the duration
 		if (Input.GetKeyUp (KeyCode.E)) {
 			_keyPressDuration = -1f;
+			keyDown = false;
 		}
 
     }
