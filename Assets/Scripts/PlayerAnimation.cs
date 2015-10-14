@@ -13,6 +13,7 @@ public class PlayerAnimation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//8-way movement animations
 		if(Input.GetKey(KeyCode.W) && Diagonal == false){
 			anim.SetBool("Up", true);
 			anim.SetBool("UpRight", false);
@@ -151,11 +152,11 @@ public class PlayerAnimation : MonoBehaviour {
 		}
 		Diagonal = false;
 		
+		//Attack animation
 		if(anim.GetBool("AttackDown")){
 			anim.SetBool("AttackDown", false);
 		}
-		
-        if(Input.GetKey(KeyCode.F)){
+		if(Input.GetKey(KeyCode.F)){
             anim.SetBool("AttackDown", true);
         }
 	}
