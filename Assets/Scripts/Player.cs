@@ -84,6 +84,7 @@ public bool keyDown;
 		if( _destroyOnlyOne )
 		{
 			_bottleDestroyed = true;
+			hasBottle = true;
 		}
 	}
 

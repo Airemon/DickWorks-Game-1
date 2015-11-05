@@ -1,14 +1,22 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerHealth : MonoBehaviour {
 	
 	public GameObject deathEffect;
+	public Slider healthSlider;
+	public Image damageImage;
+	public float flashSpeed = 5f;
+	public Color flashColor = new Color(1f, 0f, 0f, 0.1f);
 	private SpriteRenderer healthbar;
 	private Vector3 healthscale;
 	[SerializeField]
 	private float Health = 40f;
 	private float hitTime;
+	
+	Animator anim;
+	bool damaged;
 	
 
 	// Use this for initialization
@@ -27,6 +35,13 @@ public class PlayerHealth : MonoBehaviour {
 			Health = 40;
 		}
 		HealthUpdate ();
+		if(damaged){
+			damageImage.color = flashColor;
+		}
+		else{
+			damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+		}
+		damaged = false;
 	}
 	
 	void HealthUpdate (){
@@ -45,6 +60,8 @@ public class PlayerHealth : MonoBehaviour {
 			
 				GetComponent<Rigidbody2D>().AddForce(new Vector2(-horizontalPush, -verticalPush)* 2000);
 			}
+			damaged = true;
+			healthSlider.value = Health;
 		}
 	}
 }

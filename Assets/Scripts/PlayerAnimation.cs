@@ -153,11 +153,58 @@ public class PlayerAnimation : MonoBehaviour {
 		Diagonal = false;
 		
 		//Attack animation
-		if(anim.GetBool("AttackDown")){
-			anim.SetBool("AttackDown", false);
+		if(GetComponent<Player>().hasBottle){
+			if(anim.GetBool("AttackDown")){
+				anim.SetBool("AttackDown", false);
+			}
+			if(Input.GetKey(KeyCode.E) && anim.GetBool("Down") || Input.GetKey(KeyCode.E) && anim.GetBool("RunDown")){
+				anim.SetBool("AttackDown", true);
+			}
+			if(anim.GetBool("AttackDownLeft")){
+				anim.SetBool("AttackDownLeft", false);
+			}
+			if(Input.GetKey(KeyCode.E) && anim.GetBool("DownLeft") || Input.GetKey(KeyCode.E) && anim.GetBool("RunDownLeft")){
+				anim.SetBool("AttackDownLeft", true);
+			}
+			if(anim.GetBool("AttackLeft")){
+				anim.SetBool("AttackLeft", false);
+			}
+			if(Input.GetKey(KeyCode.E) && anim.GetBool("Left") || Input.GetKey(KeyCode.E) && anim.GetBool("RunLeft")){
+				anim.SetBool("AttackLeft", true);
+			}
+			if(anim.GetBool("AttackUpLeft")){
+				anim.SetBool("AttackUpLeft", false);
+			}
+			if(Input.GetKey(KeyCode.E) && anim.GetBool("UpLeft") || Input.GetKey(KeyCode.E) && anim.GetBool("RunUpLeft")){
+				anim.SetBool("AttackUpLeft", true);
+			}
+			if(anim.GetBool("AttackUp")){
+				anim.SetBool("AttackUp", false);
+			}
+			if(Input.GetKey(KeyCode.E) && anim.GetBool("Up") || Input.GetKey(KeyCode.E) && anim.GetBool("RunUp")){
+				anim.SetBool("AttackUp", true);
+			}
+			if(anim.GetBool("AttackUpRight")){
+				anim.SetBool("AttackUpRight", false);
+			}
+			if(Input.GetKey(KeyCode.E) && anim.GetBool("UpRight") || Input.GetKey(KeyCode.E) && anim.GetBool("RunUpRight")){
+				anim.SetBool("AttackUpRight", true);
+			}
+			if(anim.GetBool("AttackRight")){
+				anim.SetBool("AttackRight", false);
+			}
+			if(Input.GetKey(KeyCode.E) && anim.GetBool("Right") || Input.GetKey(KeyCode.E) && anim.GetBool("RunRight")){
+				anim.SetBool("AttackRight", true);
+			}
+			if(anim.GetBool("AttackDownRight")){
+				anim.SetBool("AttackDownRight", false);
+			}
+			if(Input.GetKey(KeyCode.E) && anim.GetBool("DownRight") || Input.GetKey(KeyCode.E) && anim.GetBool("RunDownRight")){
+				anim.SetBool("AttackDownRight", true);
+			}
 		}
-		if(Input.GetKey(KeyCode.F)){
-            anim.SetBool("AttackDown", true);
-        }
+		else{
+			return;
+		}
 	}
 }
