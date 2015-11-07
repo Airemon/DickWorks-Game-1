@@ -6,14 +6,13 @@ public class Player : MonoBehaviour {
 public float speed;
 public bool hasBottle;
 public bool keyDown;
+public bool destroyOnlyOne;
+public bool bottleDestroyed = false;
 
 	[SerializeField]
 	private float _delayInSeconds = 0.5f;
-	[SerializeField]
-	private bool _destroyOnlyOne = true;
 
 	private float _keyPressDuration = -1f;
-	private bool _bottleDestroyed = false;
 
     Animator anim;
 
@@ -25,15 +24,10 @@ public bool keyDown;
 
     void Update()
     {
-        if(Input.GetMouseButtonDown( 0 ) )
-        {
-            anim.SetTrigger( "Attack" );
-        }
-
-		// "Collect bottle" keyboard handling.
+        // "Collect bottle" keyboard handling.
 		//If the key is pressed this frame, set _bottleDestroyed
 		if (Input.GetKeyDown (KeyCode.E)) {
-			_bottleDestroyed = false;
+			bottleDestroyed = false;
 			_keyPressDuration = 0f;
 			keyDown = true;
 		}
@@ -69,7 +63,7 @@ public bool keyDown;
 	{
 		// If the key hasn't been down long enough, or if a bottle is
 		// already destroyed, do nothing.
-		if (_keyPressDuration < _delayInSeconds || _bottleDestroyed) {
+		if (_keyPressDuration < _delayInSeconds || bottleDestroyed) {
 			return;
 		}
 
@@ -81,9 +75,11 @@ public bool keyDown;
 
 		// Destroy the bottle.
 		Destroy(possibleBottle);
-		if( _destroyOnlyOne )
+		destroyOnlyOne = true;
+		//GetComponent<PlayerAttack>().bottleCharges = 3f;
+		if( destroyOnlyOne )
 		{
-			_bottleDestroyed = true;
+			bottleDestroyed = true;
 			hasBottle = true;
 		}
 	}

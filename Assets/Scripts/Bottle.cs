@@ -9,10 +9,5 @@ public class Bottle : MonoBehaviour
     {
         Debug.Log("Object Entered the Trigger");
 		GameObject gObj = other.gameObject;	
-        
-		/*if(Input.GetKeyDown(KeyCode.E))
-        {
-			Destroy(other.gameObject);
-        }*/
     }
 }

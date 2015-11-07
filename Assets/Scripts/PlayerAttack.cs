@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerAttack : MonoBehaviour {
 	
+	public float bottleCharges = 3f;
 	public int damageToGive;
 	
 	/*public float checkProjection(Vector2 a, Vector2 b){
@@ -15,23 +16,16 @@ public class PlayerAttack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		/*if(checkProjection(directionToTarget, directionFacing) < .85f){
-			if(Input.GetKeyUp(KeyCode.E) && keyDown == false){
-			Attack();
-			}	
+		if(bottleCharges == 0){
+			GetComponent<Player>().bottleDestroyed = false;
+			GetComponent<Player>().destroyOnlyOne = false;
+			GetComponent<Player>().hasBottle = false;
 		}
-	}
-	
-	void Attack(){
-		float distance = Vector3.Distance(target.transform.position, transform.position);
-		if(distance <1.5f){
-			enemyHealth eh = (enemyHealth)target.GetComponent("enemyHealth");
-			eh.AdjustCurrentHealth(-10);
-		}*/
 	}
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "Foe"){
 			other.GetComponent<EnemyHealth>().giveDamage(damageToGive);
+			bottleCharges -= 1;
 		}
 	}
 }
