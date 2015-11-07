@@ -40,6 +40,20 @@ public bool bottleDestroyed = false;
 			_keyPressDuration = -1f;
 			keyDown = false;
 		}
+		if(hasBottle == true){
+			if(Input.GetKeyDown (KeyCode.E)){
+				_keyPressDuration = 0f;
+				keyDown = true;
+			}
+			if(Input.GetKeyUp(KeyCode.E)){
+				_keyPressDuration += Time.deltaTime; 
+			}
+			if(Input.GetKeyUp(KeyCode.E)){
+				_keyPressDuration = -1f;
+				keyDown = false;
+			}
+			//Throw the Bottle!
+		}
 
     }
 	

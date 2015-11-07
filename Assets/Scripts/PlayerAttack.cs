@@ -9,14 +9,17 @@ public class PlayerAttack : MonoBehaviour {
 	/*public float checkProjection(Vector2 a, Vector2 b){
 		return Vector2.Dot(a.normalized(), b.normalized());
 	}*/
-	// Use this for initialization
+
 	void Start () {
 	
 	}
 	
-	// Update is called once per frame
 	void Update () {
-		if(bottleCharges == 0){
+		if(bottleCharges > 3){
+			bottleCharges = 3;
+		}
+		if(bottleCharges <= 0){
+			//Make it so the player can no longer attack until picking up another bottle
 			GetComponent<Player>().bottleDestroyed = false;
 			GetComponent<Player>().destroyOnlyOne = false;
 			GetComponent<Player>().hasBottle = false;
@@ -24,6 +27,7 @@ public class PlayerAttack : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "Foe"){
+			//Do damage to enemy and use a charge of the bottle weapon
 			other.GetComponent<EnemyHealth>().giveDamage(damageToGive);
 			bottleCharges -= 1;
 		}
