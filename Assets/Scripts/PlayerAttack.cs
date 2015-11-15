@@ -3,8 +3,10 @@ using System.Collections;
 
 public class PlayerAttack : MonoBehaviour {
 	
+	[SerializeField]
+	private Player _player;
+	
 	public int damageToGive;
-	public bool useCharge = false;
 	
 	/*public float checkProjection(Vector2 a, Vector2 b){
 		return Vector2.Dot(a.normalized(), b.normalized());
@@ -18,8 +20,10 @@ public class PlayerAttack : MonoBehaviour {
 		if(other.tag == "Foe"){
 			//Do damage to enemy and use a charge of the bottle weapon
 			other.GetComponent<EnemyHealth>().giveDamage(damageToGive);
-			useCharge = true;
+			
+			if(_player.bottleCharges > 0){
+				_player.bottleCharges --;
+			}
 		}
-		useCharge = false;
 	}
 }

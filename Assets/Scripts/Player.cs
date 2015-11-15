@@ -44,9 +44,6 @@ public bool bottleDestroyed = false;
 			_keyPressDuration = -1f;
 			keyDown = false;
 		}
-		/*if (GetComponent<PlayerAttack>().useCharge == true && bottleCharges > 0){
-			bottleCharges--;
-		}*/
 				
 		/*if(hasBottle == true){
 			if(Input.GetKeyDown (KeyCode.E)){
