@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour {
 	private SpriteRenderer healthbar;
 	private Vector3 healthscale;
 	[SerializeField]
-	private float Health = 40f;
+	public float Health = 40f;
 	private float hitTime;
 	
 	Animator anim;
