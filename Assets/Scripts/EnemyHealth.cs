@@ -5,7 +5,7 @@ public class EnemyHealth : MonoBehaviour {
 	
 	public int enemyHealth;
 	public GameObject deathEffect;
-	public int pointsOnDeath;
+	public int ScoreValue = 100;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +17,7 @@ public class EnemyHealth : MonoBehaviour {
 		if(enemyHealth <= 0){
 			Instantiate(deathEffect, transform.position, transform.rotation);
 			Destroy(gameObject);
+			ScoreManager.score += ScoreValue;
 		}	
 	}
 	
