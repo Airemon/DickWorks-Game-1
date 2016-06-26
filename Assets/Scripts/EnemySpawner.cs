@@ -49,6 +49,10 @@ public class EnemySpawner : MonoBehaviour
             GameObject enemy = GameObject.Instantiate( Foes[0], spawnLocation, Quaternion.identity ) as GameObject;
 
             timeUntilSpawn = spawnCooldown;
+			spawnCooldown -= 0.5f;
+			if (spawnCooldown <= 1.0f) {
+				spawnCooldown = 1.0f;
+			}
         }
     }
 }
